@@ -65,4 +65,4 @@ Follow me on twitter at https://twitter.com/intent/follow?screen_name=hugopb82
 ##Copyright and License
 This software is Copyright (c) 2015 by hugopb82
 
-This is free software, licensed under the GNU Lesser General Public License version 2.1 or later.
+This is free software, licensed under the MIT License.
