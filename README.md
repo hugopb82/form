@@ -62,6 +62,10 @@ Email me at hugopb82@gmail.com
 
 Follow me on twitter at https://twitter.com/intent/follow?screen_name=hugopb82
 
+I'm not a professionnal developper, I made it for fun but it was hard and long to do this class. Download the source code with this link and watch an ad for 5 seconds to help me : http://adf.ly/wVRJF
+
+You can also , if you want really help me, make a donation on paypal : https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DYEEWGNMNZMCJ
+
 ##Copyright and License
 This software is Copyright (c) 2015 by hugopb82
 
