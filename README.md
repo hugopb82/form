@@ -1,7 +1,6 @@
-Form Class
-==========
+#Form Class
 **A simple php class to create easily new forms**
-
+##Usage:
 Example of code : 
 ```php
 <?php
@@ -57,3 +56,11 @@ This code will output :
 
 </form>
 ```
+
+##Support
+Email me at hugopb82@gmail.com
+Follow me on twitter at @hugopb82
+
+##Copyright and License
+This software is Copyright (c) 2015 by hugopb82
+This is free software, licensed under the GNU Lesser General Public License version 2.1 or later.
