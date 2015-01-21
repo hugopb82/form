@@ -59,8 +59,10 @@ This code will output :
 
 ##Support
 Email me at hugopb82@gmail.com
-Follow me on twitter at @hugopb82
+
+Follow me on twitter at https://twitter.com/intent/follow?screen_name=hugopb82
 
 ##Copyright and License
 This software is Copyright (c) 2015 by hugopb82
+
 This is free software, licensed under the GNU Lesser General Public License version 2.1 or later.
