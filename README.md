@@ -1,59 +1,91 @@
 #Form Class
 **A simple php class to create easily new forms**
+
+##Basic syntax:
+The synatax for input
+- text
+- password
+- textarea
+- radio
+- checkbox
+- number
+- all html5 new inputs (color, date, range ...)
+is :
+```php
+$form->add($type, $name, $label, $options)
+```
+where $type is the type of input (text, textarea, password...)
+$name is the name of field
+$label is the label for field (default is ucfirst($name) . ' :')
+$options is an associative array of field attributes
+
+/!\ The select syntax is different :
+```php
+$form->add($type, $name, $label, $options)
+```
+where $options is an associative array of items with options.
+Eg :
+array('item1' => array('disabled' => 'disabled') , 'item2', 'item3')
+
 ##Usage:
 Example of code : 
 ```php
 <?php
-	require('form.php');
+	require '../src/form.php';
 	
-	$form = new form(array('id' => 'myform', 'action' => ''));
+	// form attributes
+	$data = array(
+		'id' => 'form',
+		'action' => 'zoz',
+		'method' => 'post'
+	);
+	$form = new Form($data);
 	
-	$form->add(new text('Pseudo : ', 'pseudo', array('disabled' => '1')));
-	$form->add(new password('Pass : ', 'pass'));
-	$form->add(new file('File : ', 'file'));
-	$form->add(new textarea('Textarea : ', 'textarea'));
-	$form->add(new select('Country : ', 'country', array(array('France'), array('France'))));
-	$form->add(new radio('Gender : ', 'gender', array(array('man', array('checked' => '1')), array('woman'))));
-	$form->add(new checkbox('Gender : ', 'gender', array(array('man', array('checked' => '1')), array('woman'))));
-	$form->add(new color('Color : ', 'color'));
-	$form->add(new button('Button', 'button'));
-	$form->add(new submit('Send', 'submit'));
-	$form->add(new reset('Reset', 'reset'));
-	
-	$html = $form->build();
-	
-	echo htmlspecialchars($html);
-	echo "<hr />";
-	echo $html;
+	// Syntax : $form->add(type, name, label, options)
+	// Exception for select : $form->add('select', name, label, array(item' => array(options), item, item))
+	$form->add('text', 'title', null, array('disabled' => 'disabled'));
+	$form->add('password', 'password');
+	$form->add('textarea', 'content', 'Content :', array('id' => 'efef'));
+	$form->add('radio', 'gender', 'Male :', array('value' => 'male'));
+	$form->add('radio', 'gender', 'Female :', array('value' => 'female'));
+	$form->add('color', 'color');
+	$form->add('date', 'date');
+	$form->add('number', 'number', null, array('min' => '4', 'max' => '18') );
+	$form->add('search', 'search');
+	$form->add('url', 'url');
+	$form->add('email', 'email');
+	$form->add('file', 'file');
+	$form->add('select', 'model', null, array('one', 'two', 'three'));
+	$form->add('hidden', 'id');
+	$form->add('submit', 'submit', 'Save :');
+	echo($form->end());
 ?>
 ```
 
 This code will output :
 ```html
-<form id="myform" action="" >
-
-	<label for="pseudo">Pseudo : </label><input type="text" name="pseudo" id="pseudo" disabled="1" >
-	<label for="pass">Pass : </label><input type="password" name="pass" id="pass" >
-	<label for="file">File : </label><input type="file" name="file" id="file" >
-	<label for="textarea">Textarea : </label><textarea name="textarea" id="textarea" ></textarea>
-
-	<label for="country">Country : </label>
-	<select name="country" id="country" >
-		<option value="France">France</option>
-		<option value="France" >France</option>
-	</select>
-
-	<label for="genderman">man</label><input type="radio" value="man" name="gender" id="genderman" checked="1" >
-	<label for="genderwoman">woman</label><input type="radio" value="woman" name="gender" id="genderwoman" >
-
-	<label for="genderman">man</label><input type="checkbox" value="man" name="gender" id="genderman" checked="1" >
-	<label for="genderwoman">woman</label><input type="checkbox" value="woman" name="gender" id="genderwoman" >
-
-	<label for="color">Color : </label><input type="color" name="color" id="color" >
-	<input value="Button" type="button" name="button" id="button" >
-	<input value="Send" type="submit" name="submit" id="submit" >
-	<input value="Reset" type="reset" name="reset" id="reset" >
-
+<form id="form" action="zoz" method="post" >
+   <label>Title :<input type="text" name="title" disabled="disabled" ></label>
+   <label>Password :<input type="password" name="password" ></label>
+   <label>Content :<textarea name="content" id="efef" ></textarea></label>
+   <label>Male :<input type="radio" name="gender" value="male" ></label>
+   <label>Female :<input type="radio" name="gender" value="female" ></label>
+   <label>Color :<input type="color" name="color" ></label><label>Date :<input type="date" name="date" ></label>
+   <label>Number :<input type="number" name="number" min="4" max="18" ></label>
+   <label>Search :<input type="search" name="search" ></label>
+   <label>Url :<input type="url" name="url" ></label>
+   <label>Email :<input type="email" name="email" ></label>
+   <label>File :<input type="file" name="file" ></label>
+   <label>
+      Model :
+      <select name="model">
+         <option>one</option>
+         <option>two</option>
+         <option>three</option>
+      </select>
+   </label>
+   <input type="hidden" name="id">
+   <input type="submit" name="submit" value="Save :" >
 </form>
 ```
 
