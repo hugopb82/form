@@ -2,7 +2,7 @@
 **A simple php class to create easily new forms**
 
 ##Basic syntax:
-The synatax for input
+The syntax for input
 - text
 - password
 - textarea
@@ -15,8 +15,11 @@ is :
 $form->add($type, $name, $label, $options)
 ```
 where $type is the type of input (text, textarea, password...)
+
 $name is the name of field
+
 $label is the label for field (default is ucfirst($name) . ' :')
+
 $options is an associative array of field attributes
 
 /!\ The select syntax is different :
@@ -24,6 +27,7 @@ $options is an associative array of field attributes
 $form->add($type, $name, $label, $options)
 ```
 where $options is an associative array of items with options.
+
 Eg :
 array('item1' => array('disabled' => 'disabled') , 'item2', 'item3')
 
